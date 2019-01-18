@@ -1,4 +1,4 @@
-
+import empleados.*
 class ComparacionSueldos {
 	
 	var property empleados = []
@@ -8,9 +8,8 @@ class ComparacionSueldos {
 		empleados.add(empleado)
 	}
 	
-	method sueldoMasBajo(){
+	method sueldoMasBajo() {
 		return empleados.min({ empleado => empleado.sueldo() })
-		
 	}
 	
 	method sueldoMasAlto(){
@@ -28,7 +27,7 @@ class ComparacionSueldos {
 	}
 	
 	method promedio(){
-		return empleados.sum({ empleado => empleado.sueldo()/self.cantEmpleados() })
+		return empleados.sum({ empleado => empleado.sueldo() })/self.cantEmpleados()
 	}
 	
 	method promedioTipoEmpleado(tipoEmpleado){
