@@ -3,14 +3,29 @@ import empleados.*
 
 
 describe "" {
-	test "sueldo más bajo entre Peon y Capataz"{
-		var comparacionSueldos = new ComparacionSueldos()
-		var peon = new Peon ()
-		peon.sueldo(3)
-		var capataz = new Capataz ()
-		capataz.sueldo(3)
-		var empleados = ["peon", "capataz"]
-		assert.equals(comparacionSueldos.sueldoMasBajo(empleados), peon)
-		
+	test "cantidad empleados"{
+		var sueldos = new ComparacionSueldos()
+		var peon = new Peon(gremio = false)
+		var capataz = new Capataz(gremio = false, cumplioObjetivo = false)
+		sueldos.agregarEmpleados(peon)
+		sueldos.agregarEmpleados(capataz)
+		assert.equals(2, sueldos.cantEmpleados())
+	}
+	
+	test "cantidad tipo empleado"{
+		var sueldos = new ComparacionSueldos()
+		var peon = new Peon(gremio = false)
+		var peon2 = new Peon(gremio = false)
+		sueldos.agregarEmpleados(peon)
+		sueldos.agregarEmpleados(peon2)
+		assert.equals(2, sueldos.cantTipoEmpleado("Peon"))
+	}
+	test "promedio entre Peon y MedioOficial"{
+		var sueldos = new ComparacionSueldos()
+		var peon = new Peon(gremio = false)
+		var medioOficial = new MedioOficial()
+		sueldos.agregarEmpleados(peon)
+		sueldos.agregarEmpleados(medioOficial)
+		assert.equals(922.5, sueldos.promedio())
 	}
 }
