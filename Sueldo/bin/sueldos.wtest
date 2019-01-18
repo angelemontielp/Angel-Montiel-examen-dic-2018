@@ -1,0 +1,16 @@
+import sueldos.*
+import empleados.*
+
+
+describe "" {
+	test "sueldo más bajo entre Peon y Capataz"{
+		var comparacionSueldos = new ComparacionSueldos()
+		var peon = new Peon ()
+		peon.sueldo(3)
+		var capataz = new Capataz ()
+		capataz.sueldo(3)
+		var empleados = ["peon", "capataz"]
+		assert.equals(comparacionSueldos.sueldoMasBajo(empleados), peon)
+		
+	}
+}

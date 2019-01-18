@@ -1,0 +1,39 @@
+import empleados.*
+
+describe "" {
+	test "sueldo Peon 3 horas"{
+		
+		var empleado = new Peon()
+		assert.equals(empleado.sueldo(3), 900)
+		
+	}
+	
+	test "sueldo MedioOficial 3 horas"{
+		
+		var empleado = new MedioOficial()
+		assert.equals(empleado.sueldo(3), 945)
+		
+	}
+	
+	test "sueldo Oficial 3 horas y cumplio objetivo"{
+		
+		var empleado = new Oficial(cumplioObjetivo = true, gremio = false)
+		assert.equals(empleado.sueldo(3), 1287)
+		
+	}
+	
+	test "sueldo Oficial 3 horas y no cumplio objetivo"{
+		
+		var empleado = new Oficial(cumplioObjetivo = false, gremio = false)
+		assert.equals(empleado.sueldo(3), 990)
+		
+	}
+	
+	test "sueldo Capataz 3 horas"{
+		
+		var empleado = new Capataz(cumplioObjetivo = true, gremio = false)
+		assert.equals(empleado.sueldo(3), 5287)
+		
+	}
+	
+}
